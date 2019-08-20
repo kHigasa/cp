@@ -1,13 +1,15 @@
 from vpython import *
+import numpy as np
+import math
 import cmath
 
 N = 100; twopi = 2. * pi; h = twopi / N;  sq2pi = 1. / sqrt(twopi)
-y = zeros(N + 1, float); ycomplex = zeros(N, complex)
+y = np.zeros(N + 1, float); ycomplex = np.zeros(N, complex)
 
 SignalGraph = graph(x=0, y=0, width=600, height=250, title ='Signal y(t)', xtitle='x', ytitle='y(t)', xmax=2.*math.pi, xmin=0, ymax=30, ymin=-30)
-SignalCurve = gcurve(color=color.yellow, display=SignalGraph)
+SignalCurve = gcurve(color=color.yellow)
 TransformGraph = graph(x=0, y=250, width=600, height=250, title = 'Im Y(omega)', xtitle = 'x', ytitle='Im Y(omega)', xmax=10., xmin=-1, ymax=100, ymin=-250)
-TransformCurve = gvbars(delta = 0.05, color = color.red, display = TransformGraph)
+TransformCurve = gvbars(delta = 0.05, color = color.red)
 
 def Signal(y):
     h = twopi / N; x = 0.
